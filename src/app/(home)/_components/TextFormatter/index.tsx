@@ -2,11 +2,15 @@
 
 import { TextareaInput } from "@/components/inputs/TextareaInput";
 
-import { useFromTextGenerator } from "./useFromTextGenerator";
+import { useTextFormatter } from "./useTextFormatter";
 
-export const FromTextGenerator = () => {
-  const { originalText, generatedText, onOriginalTextChange } =
-    useFromTextGenerator();
+export const TextFormatter = () => {
+  const {
+    originalText,
+    formattedText,
+    onOriginalTextChange,
+    onOriginalTextErase,
+  } = useTextFormatter();
 
   return (
     <div className="flex gap-4">
@@ -16,13 +20,14 @@ export const FromTextGenerator = () => {
         placeholder={["brokkoli", "tomato", "avocado"].join("\n")}
         value={originalText}
         onChange={onOriginalTextChange}
+        onErase={onOriginalTextErase}
       />
 
       <TextareaInput
-        label="Generated text"
-        name="generatedText"
+        label="Formatted text"
+        name="formattedText"
         placeholder={["brokkoli", "tomato", "avocado"].join(", ")}
-        value={generatedText}
+        value={formattedText}
         isDisabled
         isCopy
       />

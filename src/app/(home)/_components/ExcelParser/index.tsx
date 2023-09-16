@@ -4,15 +4,15 @@ import { FileInput } from "@/components/inputs/FileInput";
 
 import { SheetDataDisclosure } from "./components/SheetDataDisclosure";
 
-import { useFromFileGenerator } from "./useFromFileGenerator";
+import { useExcelParser } from "./useExcelParser";
 
-export const FromFileGenerator = () => {
-  const { data, onFileChange } = useFromFileGenerator();
+export const ExcelParser = () => {
+  const { data, onFileChange } = useExcelParser();
 
   return (
     <div className="flex flex-col gap-4">
       <FileInput
-        label="Generate from file"
+        label="Parse file"
         name="file"
         onChange={onFileChange}
       />

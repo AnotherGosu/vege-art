@@ -3,7 +3,7 @@ import readXlsxFile, { readSheetNames } from "read-excel-file";
 
 import { SheetData } from "@/types/common";
 
-export const useFromFileGenerator = () => {
+export const useExcelParser = () => {
   const [data, setData] = useState<SheetData[]>([]);
 
   const onFileChange = async (value: File | null) => {

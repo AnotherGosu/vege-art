@@ -1,4 +1,5 @@
 import { CopyButton } from "./components/CopyButton";
+import { EraseButton } from "./components/EraseButton";
 
 interface TextareaInputProps {
   name: string;
@@ -6,6 +7,7 @@ interface TextareaInputProps {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
+  onErase?: () => void;
   isDisabled?: boolean;
   isCopy?: boolean;
 }
@@ -16,17 +18,25 @@ export const TextareaInput = ({
   placeholder = "",
   value = "",
   onChange = () => {},
+  onErase,
   isDisabled = false,
   isCopy = false,
 }: TextareaInputProps) => {
   return (
     <div className="relative w-full">
-      <label
-        className="label"
-        htmlFor={name}
-      >
-        {label}
-      </label>
+      <div className="flex justify-between">
+        <label
+          className="label"
+          htmlFor={name}
+        >
+          {label}
+        </label>
+
+        <div className="flex gap-2">
+          {onErase && <EraseButton onErase={onErase} />}
+          {isCopy && <CopyButton value={value} />}
+        </div>
+      </div>
 
       <textarea
         id={name}
@@ -37,8 +47,6 @@ export const TextareaInput = ({
         disabled={isDisabled}
         className="input min-h-[350px] resize-none p-2"
       />
-
-      {isCopy && <CopyButton value={value} />}
     </div>
   );
 };

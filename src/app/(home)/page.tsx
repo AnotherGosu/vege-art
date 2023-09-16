@@ -1,14 +1,14 @@
-import { FromFileGenerator } from "./_components/FromFileGenerator";
-import { FromTextGenerator } from "./_components/FromTextGenerator";
+import { ExcelParser } from "./_components/ExcelParser";
+import { TextFormatter } from "./_components/TextFormatter";
 
 export default function Page() {
   return (
     <>
-      <FromTextGenerator />
+      <TextFormatter />
 
       <div className="my-8 h-[1px] w-full bg-slate-200" />
 
-      <FromFileGenerator />
+      <ExcelParser />
     </>
   );
 }

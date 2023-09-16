@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export const useFromTextGenerator = () => {
+export const useTextFormatter = () => {
   const [originalText, setOriginalText] = useState("");
-  const [generatedText, setGeneratedText] = useState("");
+  const [formattedText, setFormattedText] = useState("");
 
   const onOriginalTextChange = (value: string) => {
     const generatedWords = value.split("\n");
@@ -12,8 +12,17 @@ export const useFromTextGenerator = () => {
     const joinedWords = trimedWords.join(", ");
 
     setOriginalText(value);
-    setGeneratedText(joinedWords);
+    setFormattedText(joinedWords);
   };
 
-  return { originalText, generatedText, onOriginalTextChange };
+  const onOriginalTextErase = () => {
+    setOriginalText("");
+  };
+
+  return {
+    originalText,
+    formattedText,
+    onOriginalTextChange,
+    onOriginalTextErase,
+  };
 };

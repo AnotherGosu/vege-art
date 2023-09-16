@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -9,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vege Art",
-  description: "Vegenerator and other tools",
+  description: "Vege tools and more",
 };
 
 export default function RootLayout({
@@ -27,6 +28,8 @@ export default function RootLayout({
             <div className="w-full max-w-5xl">{children}</div>
           </main>
         </div>
+
+        <Analytics />
       </body>
     </html>
   );
