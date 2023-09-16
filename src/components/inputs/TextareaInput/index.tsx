@@ -7,9 +7,9 @@ interface TextareaInputProps {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
-  onErase?: () => void;
   isDisabled?: boolean;
   isCopy?: boolean;
+  isErase?: boolean;
 }
 
 export const TextareaInput = ({
@@ -18,13 +18,13 @@ export const TextareaInput = ({
   placeholder = "",
   value = "",
   onChange = () => {},
-  onErase,
   isDisabled = false,
   isCopy = false,
+  isErase = false,
 }: TextareaInputProps) => {
   return (
     <div className="relative w-full">
-      <div className="flex justify-between">
+      <div className="mb-1 flex justify-between">
         <label
           className="label"
           htmlFor={name}
@@ -33,7 +33,7 @@ export const TextareaInput = ({
         </label>
 
         <div className="flex gap-2">
-          {onErase && <EraseButton onErase={onErase} />}
+          {isErase && <EraseButton onErase={() => onChange("")} />}
           {isCopy && <CopyButton value={value} />}
         </div>
       </div>
@@ -45,7 +45,7 @@ export const TextareaInput = ({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         disabled={isDisabled}
-        className="input min-h-[350px] resize-none p-2"
+        className="input h-[200px] resize-none p-2 sm:h-[350px]"
       />
     </div>
   );

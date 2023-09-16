@@ -1,17 +1,12 @@
-import Image from "next/image";
-
-import rose from "@/images/rose.png";
+import { Heading } from "./components/Heading";
+import { NavigationMenu } from "./components/NavigationMenu";
 
 export const Header = () => {
   return (
-    <header className="flex items-end justify-center gap-1 p-4 shadow-md">
-      <h1 className="text-2xl font-medium">Vege Art</h1>
+    <header className="relative flex justify-center gap-1 p-4 shadow-md">
+      <Heading />
 
-      <Image
-        src={rose}
-        alt="Rose"
-        className="h-9 w-9"
-      />
+      <NavigationMenu />
     </header>
   );
 };

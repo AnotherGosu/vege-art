@@ -13,7 +13,7 @@ export const CopyButton = ({ value }: CopyButtonProps) => {
 
   return (
     <button
-      className="icon-button relative"
+      className="btn-icon relative"
       onClick={onCopy}
     >
       <CopyIcon />

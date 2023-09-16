@@ -7,7 +7,7 @@ interface EraseButtonProps {
 export const EraseButton = ({ onErase }: EraseButtonProps) => {
   return (
     <button
-      className="icon-button"
+      className="btn-icon"
       onClick={onErase}
     >
       <EraseIcon />

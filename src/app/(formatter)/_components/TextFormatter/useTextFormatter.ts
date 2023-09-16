@@ -15,14 +15,9 @@ export const useTextFormatter = () => {
     setFormattedText(joinedWords);
   };
 
-  const onOriginalTextErase = () => {
-    setOriginalText("");
-  };
-
   return {
     originalText,
     formattedText,
     onOriginalTextChange,
-    onOriginalTextErase,
   };
 };

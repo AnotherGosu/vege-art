@@ -11,7 +11,15 @@
     @apply block p-2 text-sm font-medium;
   }
 
-  .icon-button {
+  .btn-icon {
     @apply rounded-md p-1 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 active:border-slate-200;
+  }
+
+  .btn-primary {
+    @apply rounded-md border border-transparent bg-slate-200 px-2 py-1 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 active:border-slate-200 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .btn-secondary {
+    @apply rounded-md border border-slate-200 px-2 py-1 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 active:border-slate-200 disabled:cursor-not-allowed disabled:opacity-70;
   }
 }
