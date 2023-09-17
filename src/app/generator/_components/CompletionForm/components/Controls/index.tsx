@@ -1,28 +1,48 @@
+import { useControls } from "./useControls";
+
 interface ControlsProps {
+  prompt: string;
   isLoading: boolean;
   isPrompt: boolean;
   stop: () => void;
 }
 
-export const Controls = ({ isLoading, isPrompt, stop }: ControlsProps) => {
-  return (
-    <div className="flex justify-end gap-2">
-      <button
-        type="submit"
-        disabled={isLoading || !isPrompt}
-        className="btn-primary"
-      >
-        Generate
-      </button>
+export const Controls = ({
+  prompt,
+  isLoading,
+  isPrompt,
+  stop,
+}: ControlsProps) => {
+  const { onSavePrompt } = useControls({ prompt });
 
+  return (
+    <div className="flex justify-between gap-2">
       <button
         type="button"
-        onClick={stop}
-        disabled={!isLoading}
-        className="btn-secondary"
+        className="btn-primary"
+        onClick={onSavePrompt}
       >
-        Stop
+        Save
       </button>
+
+      <div className="flex gap-2">
+        <button
+          type="submit"
+          disabled={isLoading || !isPrompt}
+          className="btn-primary"
+        >
+          Generate
+        </button>
+
+        <button
+          type="button"
+          onClick={stop}
+          disabled={!isLoading}
+          className="btn-secondary"
+        >
+          Stop
+        </button>
+      </div>
     </div>
   );
 };
